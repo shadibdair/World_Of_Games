@@ -1,0 +1,32 @@
+pipeline {
+agent any
+    
+    stages {
+        stage('check') {
+            steps {
+                sh 'checkout scm'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'sudo docker build -t w0g .'
+            }
+        }
+        stage('run') {
+            steps {
+                sh 'doccker-compose up -d'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'e2e.py'
+            }
+        }
+        stage('finalize') {
+            steps {
+                sh 'docker-compose down'
+            }
+        }
+    }
+    
+}
