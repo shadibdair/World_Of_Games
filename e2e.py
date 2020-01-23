@@ -8,7 +8,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-app_url = 'http://localhost:8080/'
+app_url = 'http://localhost:10000/'
 
 
 def test_scores_service(app_url):
@@ -36,7 +36,7 @@ def test_scores_service(app_url):
     # else:
     #     print(-1)
 
-    url = 'http://localhost:8080/'
+    url = 'http://localhost:10000/'
     page = requests.get(url)
     #print(page.text)
     soup = BeautifulSoup(page.text, 'html.parser')
