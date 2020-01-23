@@ -19,7 +19,7 @@ agent any
         }
         stage('test') {
             steps {
-                sh 'e2e.py'
+                python3 'e2e.py'
             }
         }
         stage('finalize') {
